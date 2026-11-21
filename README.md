@@ -2,8 +2,7 @@
 
 > A retro-futuristic desktop ambient synthesizer, curved LED mood lamp, and real-time PC telemetry oscilloscope powered by ESP32.
 
-![ASYLYM MONOLITH Hero Photo](docs/images/hero.jpg)
-<!-- Replace with your own photos in docs/images/ -->
+![ASYLYM MONOLITH Photo #1](docs/images/1.jpg)
 
 ---
 
@@ -23,7 +22,6 @@
 12. [Troubleshooting](#troubleshooting)
 13. [License](#license)
 
----
 
 ## Overview & Key Features
 
@@ -39,7 +37,9 @@
 * **Zero-Reflash Wi-Fi Provisioning:** Built-in Captive Portal (`AETHER-MONOLITH` / `192.168.4.1`) with network scanning and NVS storage, plus `aether-monolith.local` mDNS and ArduinoOTA.
 * **Ultra-Low-CPU PC Daemon:** Single-file Python script (~`0.0–0.1%` CPU usage, zero spawned `ping.exe` subprocesses) with one-click installers and silent background service managers for both **Windows** and **macOS**.
 
----
+![ASYLYM MONOLITH Photo #2](docs/images/2.jpg)
+
+
 
 ## Repository Structure
 
@@ -67,7 +67,6 @@ asylym-monolith/
 └── docs/images/                     # Build & showcase photos
 ```
 
----
 
 ## Bill of Materials (BOM)
 
@@ -96,7 +95,7 @@ asylym-monolith/
 | 1 | **Small Pinch of Polyfill / Cotton** | Acoustic damping inside the sealed speaker cup |
 | — | **Double-Sided Tape / Hot Glue** | Securing the ends of the flexible LED matrix and strain-relieving wires |
 
----
+![ASYLYM MONOLITH Photo #5](docs/images/5.jpg)
 
 ## Wiring & Pinout
 
@@ -193,9 +192,10 @@ flowchart LR
 > * Double-check electrolytic capacitor polarity before powering on (white stripe with minus signs goes to **GND**).
 > * Do **not** attach wires to GPIO `6–11` on 38-pin ESP32 boards (reserved for internal SPI flash).
 
----
 
 ## 3D Printing Guide
+
+![ASYLYM MONOLITH Photo #4](docs/images/4.jpg)
 
 All parts are designed for **zero supports** when laid flat on the build plate (`Z = 0`). The profiles below were tuned for **Bambu Lab P1S / X1C** (`0.4 mm` nozzle, Textured PEI plate) in **Bambu Studio / OrcaSlicer**, and translate directly to any well-calibrated FDM printer.
 
@@ -234,7 +234,6 @@ All parts are designed for **zero supports** when laid flat on the build plate (
 4. **Test-Fit One Encoder Knob First:** Before printing both knobs, verify your encoder's spline count (`18` vs `20` teeth) and shaft height (`12.8 mm` short vs `17.8 mm` long) in `knob_scope_fluted.scad`. Print 1 test knob (6 min); adjust `shaft_tol` by `±0.05 mm` if it feels too tight or loose.
 5. **Bottom Flow Ratio Trick:** On face-down grooved panels (`front_frame`, `rear_frame`), setting *Bottom surface flow ratio* to `1.04` eliminates micro-gaps on the first layer around fine instrument markings.
 
----
 
 ## Painting the Recessed Panel Grooves
 
@@ -251,7 +250,6 @@ The front bezel, rear panel, arch ribs, and knob caps include **`0.65 mm` deep, 
 2. Flood the grooves generously with thinned acrylic paint (using a toothpick or brush).
 3. Wait **1–2 minutes** until the paint starts to tack up inside the grooves, then wrap a **single layer of slightly damp paper towel tightly around a rigid plastic card** and swipe flat across the surface. The top face wipes completely clean while the recessed lines remain crisp and solid.
 
----
 
 ## Mechanical & Glue Assembly Guide
 
@@ -290,7 +288,7 @@ Working on the detached front panel gives you full 360° access:
 4. Seat the ESP32 breakout shield longitudinally into the two-tier cradle on `base_tray` (`54.2 × 80.5 mm`, USB/DC ports aligned cleanly with the `72 × 21 mm` cutout in `rear_frame`).
 5. Slide `white_diffuser` into its base grooves, fit the 2 `diffuser_rib` arches, and snap `rear_frame` onto the magnets.
 
----
+![ASYLYM MONOLITH Photo #3](docs/images/3.jpg)
 
 ## Firmware Build & Flashing
 
@@ -338,7 +336,6 @@ pio run -t upload
 pio device monitor
 ```
 
----
 
 ## Wi-Fi Setup (Captive Portal) & OTA
 
@@ -360,7 +357,7 @@ No hardcoded Wi-Fi credentials are required. The device manages connectivity in 
 ### Wireless OTA Updates
 Once connected to your Wi-Fi, the device advertises itself via mDNS as **`aether-monolith.local`** and accepts ArduinoOTA flashes directly from PlatformIO.
 
----
+![ASYLYM MONOLITH Photo #7](docs/images/7.png)
 
 ## Controls & Operating Modes
 
@@ -398,7 +395,7 @@ The bottom bar uses a clean monochrome-until-selected hierarchy: inactive labels
 | Center | **`[CLEAN]`** | Header shows live PC time & date; 4 scrolling oscilloscopes (`CPU`, `RAM/SWAP`, `DISK/TEMP`, `NET/PING`) | Standard telemetry monitor with steady ambient LED animations |
 | `1b` | **`[SYNC]`** | Same 4 telemetry oscilloscopes + PC clock | Smoothly modulates LED shader speed with CPU load, shows edge alerts on the LED arch, and applies gentle audio slow-motion during `SWAP`/`THERMAL`/`NET` alerts |
 
----
+
 
 ## PC Telemetry Daemon (Windows & macOS)
 
@@ -430,6 +427,9 @@ python telemetry_daemon.py --ip 192.168.1.50 --interval 1.0
 python telemetry_daemon.py --demo
 python telemetry_daemon.py --silent
 ```
+
+![ASYLYM MONOLITH Photo #6](docs/images/6.png)
+
 
 Want to build your own custom sender (Linux, Home Assistant, game telemetry)? Send a JSON UDP datagram to port **`4210`**:
 ```json
