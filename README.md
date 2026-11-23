@@ -61,9 +61,10 @@ asylym-monolith/
 │   ├── install_win.bat              # One-click Windows installer & service manager
 │   └── install_mac.command          # One-click macOS installer & LaunchAgent manager
 ├── cad/
-│   ├── asylym_scope_01_v5_final.scad
-│   ├── knob_scope_fluted.scad
-│   └── stl/                         # Ready-to-slice STL files
+│   ├── AsylymEnclosureV2.scad
+│   ├── AsylymEnclosureV2.stl
+│   ├── AsylymDiffusor.3mf
+│   └── AsylymBody.3mf               
 └── docs/images/                     # Build & showcase photos
 ```
 
